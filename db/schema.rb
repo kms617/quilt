@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160324223256) do
     t.string  "email"
     t.string  "phone"
     t.string  "zipcode",          default: "32256"
+    t.string  "radius"
     t.string  "status",           default: "Walk In"
     t.date    "date_available"
     t.string  "education"

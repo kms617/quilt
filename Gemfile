@@ -1,7 +1,12 @@
 source 'https://rubygems.org/'
 
 gem 'bourbon'
+gem 'email_validator'
+gem 'flutie'
+gem 'i18n-tasks'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-multiselect-rails', :git => 'git://github.com/arojoal/jquery-multiselect-rails.git'
 gem 'neat'
 gem 'normalize-rails'
 gem 'pg', '~> 0.15'
@@ -9,6 +14,7 @@ gem 'rails', '4.2.5'
 gem 'refills'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
+gem 'title'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
