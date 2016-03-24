@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Quilt</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <meta charset="utf-8" />
+  <meta name="ROBOTS" content="NOODP" />
+  <meta name="viewport" content="initial-scale=1" />
+  <title><%= title %></title>
+  <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "jquery.multiselect." + I18n.locale.to_s %>
+  <%= javascript_include_tag "jquery.multiselect.filter." + I18n.locale.to_s %>
+  <link href="./ply.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="<%= body_class %>">
+  <div class="content">
+    <main>
+      <%= render 'flashes' -%>
+      <%= yield %>
+    </main>
+  </div>
+  <%= render 'javascript' -%>
 </body>
 </html>
