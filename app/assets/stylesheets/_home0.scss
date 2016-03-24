@@ -1,0 +1,42 @@
+div.home {
+  @include span-columns(12);
+  background-color: $light-gray;
+  height: 100%;
+
+  span {
+    display: inline-flex;
+  }
+
+  h1 {
+    font-weight: 800;
+    color: #315D9B;
+    margin-top: 75px;
+    margin-bottom: 50px;
+    font-size: 60px;
+    @include shift(1 of 12);
+    display: inline-table;
+  }
+
+  h2 {
+    margin-top: 85px;
+    font-weight: 400;
+    font-size: 25px;
+    word-wrap: normal;
+    margin-left: 20px;
+    text-transform: uppercase;
+    color: #315D9B;
+  }
+
+  h3 {
+    @include shift (1 of 12);
+    font-weight: 300;
+    font-size: 30px;
+    color: #315D9B;
+    padding-left: 30px;
+    margin-top: 20px;
+  }
+
+  a {
+    font-weight: 600;
+  }
+}
