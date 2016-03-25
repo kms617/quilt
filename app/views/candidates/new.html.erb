@@ -38,10 +38,11 @@
       <div class="modal-inner">
         <label class="modal-close" for="modal-1"></label>
         <%= image_tag('logo_small.png') %>
-        <p class="modal-intro">My information is correct to the best of my knowledge. Sign me up to meet with a recruiter today.</p>
+        <p class="modal-intro">My information is correct to the best of my knowledge. <br> Sign me up to meet with a recruiter today.</p>
         <%= form.button :submit, "Let's Go" %> <%= link_to 'Cancel', root_path %></p>
       </div>
     </div>
   </div>
+  <a><%= link_to 'Go Back and Cancel', root_path %></a>
 <% end %>
 </div>
