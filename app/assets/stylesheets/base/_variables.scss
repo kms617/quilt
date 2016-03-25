@@ -1,6 +1,6 @@
 // Typography
-$proxima: 'proxima-nova', $helvetica;
-$sans-serif: $proxima;
+$main-font: 'Proxima', $helvetica;
+$sans-serif: $main-font;
 $serif: $georgia;
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
@@ -27,14 +27,16 @@ $sidebar-width: 200px;
 
 // Colors
 $blue: #67889A;
-$dark-gray: #333;
-$medium-dark-gray: #858585;
+$dark-gray: #3A4449;
+$medium-dark-gray: #576166;
 $medium-gray: #DDD;
 $light-gray: #F5F5F5;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
-$light-green: #E6EFC2;
+$light-green: #D6E342;
 $orange: #DF904D;
+$bright-blue: #0095C8;
+$white: #FFFFFF;
 
 // Background Color
 $base-background-color: white;
@@ -44,7 +46,7 @@ $base-font-color: $dark-gray;
 $base-accent-color: $blue;
 
 // Link Colors
-$base-link-color: $orange;
+$base-link-color: $bright-blue;
 $hover-link-color: lighten($base-link-color, 15);
 $base-button-color: $base-link-color;
 $hover-button-color: $hover-link-color;
@@ -62,7 +64,7 @@ $base-border: 1px solid $base-border-color;
 // Forms
 $form-border-color: $base-border-color;
 $form-border-color-hover: darken($base-border-color, 10);
-$form-border-color-focus: $base-accent-color;
+$form-border-color-focus: $light-green;
 $form-border-radius: $base-border-radius;
 $form-box-shadow: inset 0 1px 3px rgba(black,0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);

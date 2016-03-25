@@ -14,7 +14,7 @@ div.disclaimer {
   }
 
   h2 {
-    color: #DF904D;
+    color: $bright-blue;
   }
 }
 
@@ -43,7 +43,7 @@ div.disclaimer {
     font-size: 30px;
     @include shift(2 of 12);
     padding-left: 80px;
-    color: #DF904D;
+    color: $base-link-color;
   }
 
   label img {

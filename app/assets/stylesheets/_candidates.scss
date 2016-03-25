@@ -1,3 +1,15 @@
+div.banner-contain {
+
+  background-color: $bright-blue;
+
+  h1 {
+    color: $white;
+    margin-left: 75px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
 div.candidate-div {
   @include outer-container;
 
@@ -10,9 +22,14 @@ div.candidate-div {
 
   h3 {
     margin-left: 75px;
-    margin-bottom: 25px;
-    color: #6E9082;
+    color: $bright-blue;
     font-size: 25px;
+  }
+
+  h6 {
+    margin-left: 75px;
+    margin-bottom: 25px;
+    font-weight: normal;
   }
 
   form.new_candidate {
@@ -45,7 +62,7 @@ div.candidate-div {
 
       label {
         @include span-columns(3 of 7);
-        color: $blue;
+        color: $base-font-color;
       }
 
       input#candidate_last_name {
@@ -58,7 +75,6 @@ div.candidate-div {
 
       label {
         text-align: right;
-        text-transform: uppercase;
       }
 
       select {
@@ -75,9 +91,9 @@ div.candidate-div {
       padding: 7px 10px 7px 10px;
       font-size: 20px;
       border-width: thin;
-      background-color: #DF904D;
-      border-radius: 3px;
-      color: #FFFFFF;
+      background-color: $light-green;
+      border-radius: 0px;
+      color: $dark-gray;
     }
   }
 }

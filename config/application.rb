@@ -30,6 +30,7 @@ module Quilt
     end
 
     config.active_record.raise_in_transactional_callbacks = true
+    config.assets.paths << Rails.root.join('assets', 'fonts') 
     config.assets.initialize_on_precompile = false
   end
 end
