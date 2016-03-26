@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-  has_many :specialties
+  has_many :candidates
 end

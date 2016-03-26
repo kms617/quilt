@@ -1,9 +1,9 @@
 class CreateCategories < ActiveRecord::Migration
   def change
     create_table :categories do |t|
-      t.timestamps
       t.string :name
-      t.string :bullhorn_id
+      t.integer :bullhorn_id
+      t.integer :candidate_id
     end
   end
 end

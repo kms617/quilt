@@ -9,13 +9,11 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :radius
       t.string :status, default: 'Walk In'
       t.date :date_available
-      t.string :education
+      t.string :race
       t.string :languages
-      t.boolean :background_check
-      t.boolean :drug_screen
-      t.string :work_type
-      t.string :shifts
-      t.string :category
+      t.string :gender
+      t.boolean :veteran_status
+      t.boolean :disability_status
       t.boolean :eligible, default: true
     end
   end

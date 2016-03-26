@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326144151) do
+ActiveRecord::Schema.define(version: 20160326160320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,42 +37,23 @@ ActiveRecord::Schema.define(version: 20160326144151) do
     t.string  "radius"
     t.string  "status",            default: "Walk In"
     t.date    "date_available"
-    t.string  "category"
-    t.boolean "eligible",          default: true
-    t.boolean "veteran_status"
     t.string  "race"
+    t.string  "languages"
     t.string  "gender"
+    t.boolean "veteran_status"
     t.boolean "disability_status"
+    t.boolean "eligible",          default: true
   end
 
   create_table "categories", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.string   "bullhorn_id"
+    t.string  "name"
+    t.integer "bullhorn_id"
+    t.integer "candidate_id"
   end
 
   create_table "recruiters", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "specializations", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "specialty_id"
-    t.integer  "candidate_id"
-  end
-
-  add_index "specializations", ["candidate_id"], name: "index_specializations_on_candidate_id", using: :btree
-  add_index "specializations", ["specialty_id"], name: "index_specializations_on_specialty_id", using: :btree
-
-  create_table "specialties", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.integer  "bullhorn_id"
-    t.integer  "category_id"
   end
 
   create_table "timeslots", force: :cascade do |t|

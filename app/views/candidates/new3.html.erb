@@ -1,0 +1,48 @@
+<%= render "topbar" %>
+<div class="banner-contain">
+  <h1 class="banner-content">Create a Profile with Adecco</h1>
+</div>
+<%= render 'form_errors.html.erb', object: @candidate  %>
+<div class= candidate-div>
+<h2></h2>
+<h3>Create a profile to get started!</h3>
+<h6>The next step will be to pick an appointment time with one of our recruiters.</h6>
+<%= simple_form_for @candidate, url: candidates_path do |form| %>
+  <%= form.input :first_name, label: 'Name', placeholder: 'First Name', error: false %>
+  <%= form.input :last_name, label: false, placeholder: 'Last Name', error: false %>
+  <%= form.input :email, placeholder: 'myemail@mail.com', error: false %>
+  <%= form.input :phone, placeholder: '555-5555', error: false %>
+  <%= form.input :zipcode, placeholder: '53202', error: false %>
+  <%= form.input :radius, placeholder: '20', label: 'Miles Willing to Travel', error: false %>
+  <%= form.input :date_available, as: :date, html5: true %>
+  <%= form.input :education do %>
+    <%= form.select :education, education_types_for_select %>
+  <% end %>
+  <%= form.input :languages, label: 'Main spoken language' do %>
+    <%= form.select :languages, languages_for_select%>
+  <% end %>
+  <%= form.input :work_type, label: 'Preferred Type of Work' do %>
+    <%= form.select :work_type, work_types_for_select %>
+  <% end %>
+  <%= form.input :shifts, label: 'Preferred Shift' do %>
+    <%= form.select :shifts, shifts_for_select %>
+  <% end %>
+  <%= form.association :specialties, as: :grouped_select, collection: specialties_for_select, group_method: :last, label: "Select All Positions of Interest" %>
+  <%= form.input :eligible, as: :boolean, value: '1', label: 'I am 18 years old or older and eligible to work in the United States.'%>
+  <div class="modal">
+    <label for="modal-1">
+      <div class="modal-trigger">Create A Profile</div>
+    </label>
+    <input class="modal-state" id="modal-1" type="checkbox" />
+    <div class="modal-fade-screen">
+      <div class="modal-inner">
+        <label class="modal-close" for="modal-1"></label>
+        <%= image_tag('logo_small.png') %>
+        <p class="modal-intro">My information is correct to the best of my knowledge. <br> Sign me up to meet with a recruiter today.</p>
+        <%= form.button :submit, "Let's Go" %> <%= link_to 'Cancel', root_path %></p>
+      </div>
+    </div>
+  </div>
+  <a><%= link_to 'Go Back and Cancel', root_path %></a>
+<% end %>
+</div>

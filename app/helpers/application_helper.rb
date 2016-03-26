@@ -1,51 +1,10 @@
 module ApplicationHelper
 
-  def education_types_for_select
-    ["No/Some High School", "GED", "HS Diploma", "Associate Degree", "College Degree"]
+  def genders_for_select
+    ["Male", "Female", "Other"]
   end
 
-  def languages_for_select
-    ["English", "Spanish", "Portugese", "Mandarin", "Vietnamese"]
-  end
-
-  def work_types_for_select
-    ["Temporary", "Full Time", "Both"]
-  end
-
-  def shifts_for_select
-    ["Any", "Days Only", "Afternoons Only", "Midnights Only", "Days and Afternoons", "Afternoons and Nights", "Days and Nights"]
-  end
-
-  def admin_specialties
-    Specialty.where(category_id: 1).map { |specialty| [specialty.name]}
-  end
-
-  def contact_specialties
-    Specialty.where(category_id: 2).map { |specialty| [specialty.name]}
-  end
-
-  def industry_specialties
-    Specialty.where(category_id: 3).map { |specialty| [specialty.name]}
-  end
-
-  def trade_specialties
-    Specialty.where(category_id: 4).map { |specialty| [specialty.name]}
-  end
-
-  def specialties_for_select
-    specialties = []
-    admin = ['Administrative']
-    admin << admin_specialties
-    specialties << admin
-    contacts = ['Contact Center']
-    contacts << contact_specialties
-    specialties << contacts
-    industry = ["Industrial"]
-    industry << industry_specialties
-    specialties << industry
-    skill = ["Skilled Trades"]
-    skill << trade_specialties
-    specialties << skill
-    specialties
+  def races_for_select
+    ["Hispanic or Latino", "White (Not Hispanic or Latino)", "Black or African American (Not Hispanic or Latino)", "Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)", "Asian (Not Hispanic or Latino)", "American Indian or Alaska Native (Not Hispanic or Latino)", "Two or More Races (Not Hispanic or Latino)"]
   end
 end
