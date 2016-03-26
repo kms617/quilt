@@ -1,0 +1,16 @@
+<%= render "topbar" %>
+<div class="banner-contain">
+  <h1 class="banner-content">Create a Profile with Adecco</h1>
+</div>
+<%= render 'form_errors.html.erb', object: @candidate  %>
+<div class= candidate-div>
+<h2></h2>
+<h3>Thanks for coming</h3>
+<h6>Help us know where to look for your jobs.</h6>
+<%= simple_form_for @candidate, url: candidates_path do |form| %>
+  <%= form.input :zipcode, placeholder: '53202', error: false %>
+  <%= form.input :radius, placeholder: '20', label: 'Miles Willing to Travel', error: false %>
+  <%= form.input :date_available, as: :date, html5: true %>
+  <%= form.button :submit, "Next" %> <%= link_to 'Cancel', root_path %></p>
+<% end %>
+</div>
