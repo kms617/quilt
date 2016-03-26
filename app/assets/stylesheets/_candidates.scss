@@ -32,7 +32,7 @@ div.candidate-div {
     font-weight: normal;
   }
 
-  form.new_candidate {
+  form {
     @include span-columns(7);
     clear: both;
 
@@ -94,6 +94,43 @@ div.candidate-div {
       background-color: $light-green;
       border-radius: 0px;
       color: $dark-gray;
+    }
+
+    div.modal {
+      form {
+        @include span-columns(1);
+        clear: both;
+
+        div.input {
+          &.boolean {
+            @include shift(3 of 7);
+            @include span-columns(4 of 7);
+
+            input.boolean {
+              display: inline-block;
+              margin-right: $base-spacing;
+              width: auto;
+            }
+
+            label {
+              align-items: center;
+              display: flex;
+              text-align: left;
+              width: 100%;
+              font-size: 75%;
+            }
+
+            input {
+              @include span-columns(4 of 7);
+              }
+
+            label {
+              @include span-columns(3 of 7);
+              color: $blue;
+            }
+          }
+        }
+      }
     }
   }
 }

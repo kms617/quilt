@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'welcome/disclaimer'
   get 'welcome/industries'
 
-  resources :candidates, only: [:new, :create]
+  resources :candidates, only: [:new, :create, :edit, :update]
 end

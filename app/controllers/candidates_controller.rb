@@ -7,7 +7,7 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params)
 
     if @candidate.save
-      redirect_to edit_candidate_path(candidate_id)
+      redirect_to edit_candidate_path(@candidate)
     else
       render :new
     end
@@ -18,6 +18,8 @@ class CandidatesController < ApplicationController
   end
 
   def update
+    @candidate = Candidate.find(params[:id])
+    
     if @candidate.update(candidate_params)
       redirect_to root_path
     else

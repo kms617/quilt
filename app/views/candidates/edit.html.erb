@@ -5,12 +5,28 @@
 <%= render 'form_errors.html.erb', object: @candidate  %>
 <div class= candidate-div>
 <h2></h2>
-<h3>Thanks for coming</h3>
+<h3>Thanks for coming <%= @candidate.first_name %></h3>
 <h6>Help us know where to look for your jobs.</h6>
-<%= simple_form_for @candidate, url: candidates_path do |form| %>
+<%= simple_form_for @candidate, url: candidate_path do |form| %>
   <%= form.input :zipcode, placeholder: '53202', error: false %>
   <%= form.input :radius, placeholder: '20', label: 'Miles Willing to Travel', error: false %>
   <%= form.input :date_available, as: :date, html5: true %>
-  <%= form.button :submit, "Next" %> <%= link_to 'Cancel', root_path %></p>
+  <div class="modal">
+    <label for="modal-1">
+      <div class="modal-trigger">Meet a Recruiter</div>
+    </label>
+    <input class="modal-state" id="modal-1" type="checkbox" />
+    <div class="modal-fade-screen">
+      <div class="modal-inner">
+        <label class="modal-close" for="modal-1"></label>
+        <%= image_tag('logo_small.png') %>
+        <p class="modal-intro">Just a few more questions and you're on your way to meeting a recruiter. <br> Leave blank to opt out.</p>
+        <%= form.input :zipcode, placeholder: '53202', error: false %>
+        <%= form.input :radius, placeholder: '20', label: 'Miles Willing to Travel', error: false %>
+        <%= form.input :date_available, as: :date, html5: true %>
+        <%= form.button :submit, "Meet A Recruiter" %> <p>All of the information here is correct to the best of my knowledge.</p>
+      </div>
+    </div>
+  </div>
 <% end %>
 </div>
