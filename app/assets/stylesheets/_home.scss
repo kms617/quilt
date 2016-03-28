@@ -1,8 +1,10 @@
 div.home {
   @include span-columns(12);
-  background-color: $white;
   height: 100%;
-  margin-top: 20px;
+
+  img {
+      margin-top: 150px;
+  }
 
   span {
     display: inline-flex;

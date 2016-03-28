@@ -19,10 +19,3 @@ $(function() {
       e.stopPropagation();
     });
   });
-  
-  $(function(){
-
-  $(".mydiv").addClass("active");
-  console.log($(".mydiv"));
-
-  });
