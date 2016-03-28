@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root to: 'welcome#home'
   get 'welcome/disclaimer'
-  get 'welcome/industries'
 
-  resources :candidates, only: [:new, :create, :edit, :update]
+  resources :candidates, only: [:edit, :update]
+
+  resources :industries, only: [:index]
+  resources :industries do
+    resources :candidates, only: [:new, :create]
+  end
 end

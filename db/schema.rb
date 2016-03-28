@@ -38,17 +38,18 @@ ActiveRecord::Schema.define(version: 20160326160320) do
     t.string  "status",            default: "Walk In"
     t.date    "date_available"
     t.string  "race"
-    t.string  "languages"
     t.string  "gender"
     t.boolean "veteran_status"
     t.boolean "disability_status"
     t.boolean "eligible",          default: true
+    t.integer "industry_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "industries", force: :cascade do |t|
     t.string  "name"
     t.integer "bullhorn_id"
     t.integer "candidate_id"
+    t.string  "image"
   end
 
   create_table "recruiters", force: :cascade do |t|

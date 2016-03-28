@@ -20,15 +20,19 @@
       <div class="modal-inner">
         <label class="modal-close" for="modal-1"></label>
         <%= image_tag('logo_small.png') %>
-        <p class="modal-intro">Just a few more questions and you're on your way to meeting a recruiter.</p>
+        <p class="modal-intro">Just a few more questions and you're on your way to meeting a recruiter. <br> Leave blank to opt out.</p>
         <%= form.input :race, label: 'Race' do %>
           <%= form.select :race, races_for_select%>
         <% end %>
         <%= form.input :gender, label: 'Gender' do %>
           <%= form.select :gender, genders_for_select%>
         <% end %>
-        <%= form.input :veteran_status, as: :boolean, label: 'I am a veteran of the US Armed Forces.' %>
-        <%= form.input :disability_status, as: :boolean, label: 'I qualify as disabled.' %>
+        <%= form.input :disability_status, label: 'Disability Status' do %>
+          <%= form.select :gender, disability_status_for_select%>
+        <% end %>
+        <%= form.input :veteran_status, label: 'Veteran Status' do %>
+          <%= form.select :gender, veteran_status_for_select%>
+        <% end %>
         <%= form.button :submit, "Submit" %>
       </div>
     </div>
