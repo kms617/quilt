@@ -1,9 +1,11 @@
 div.disclaimer {
-  display: inline-block;
+  background-image: url("disclaimer.png");
+  background-repeat: no-repeat;
+  height: 1000px;
 
   h1 {
     font-weight: 800;
-    color: #315D9B;
+    color: $light-green;
     margin-top: 45px;
     margin-bottom: 25px;
     font-size: 25px;
@@ -14,7 +16,11 @@ div.disclaimer {
   }
 
   h2 {
-    color: $bright-blue;
+    color: $light-green;
+  }
+
+  img {
+    padding-left: 18px;
   }
 }
 
@@ -40,10 +46,11 @@ div.disclaimer {
   label {
     cursor: pointer;
     margin-bottom: 0;
-    font-size: 30px;
-    @include shift(2 of 12);
-    padding-left: 80px;
-    color: $base-link-color;
+    font-size: 20px;
+    @include shift(3 of 12);
+    padding-left: 25px;
+    padding-top: 130px;
+    color: $light-green;
   }
 
   label img {
@@ -58,6 +65,10 @@ div.disclaimer {
 
   .modal-trigger {
     padding: 0.8em 1em;
+
+    a {
+      color: $light-green;
+    }
   }
 
   .modal-fade-screen { // overlay
@@ -156,7 +167,7 @@ div.disclaimer {
     }
 
     a.cta {
-      color: $base-background-color;
+      color: $white;
       display: inline-block;
       margin-right: 0.5em;
       margin-top: 1em;
