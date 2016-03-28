@@ -1,0 +1,10 @@
+<%= render "topbar" %>
+<div class='home'>
+  <ul>
+    <% @industries.each do |industry| %>
+      <li>
+        <%= link_to image_tag(industry.image), new_industry_candidate_path(industry) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
