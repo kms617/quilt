@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
 
   def create
     Appointment.all.each do |a|
-      if !params[:available_times].include?(a.timeslot_id)
+      if params[:available_times].exclude?(a.timeslot_id)
         Appointment.destroy_all(timeslot_id: a.timeslot_id)
       end
     end
@@ -20,6 +20,7 @@ class AppointmentsController < ApplicationController
       end
     end
     # binding.pry
+    flash[:notice] = "Availability updated!"
     redirect_to new_appointment_path
   end
 
