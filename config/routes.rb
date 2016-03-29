@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :timeslots, only: [:create, :edit, :update, :destroy]
+  devise_for :recruiters
+  resources :timeslots
 
-  resources :recruiters, only: [:show]
+  resources :recruiters
+  resources :appointments
 
-  # resources :reviews, only: :none do
-  #   resources :votes, only: [:create, :update]
-  # end
+  root 'appointments#new'
+
 end

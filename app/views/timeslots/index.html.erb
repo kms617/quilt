@@ -1,0 +1,14 @@
+
+  <div class="text-center">
+    <h1><%= Date.today.strftime('%A %B %-d, %Y') %></h1>
+  </div>
+
+  <% @timeslots.each do |t| %>
+    <% if t.start_time.strftime('%b %d') == Date.today.strftime('%b %d') %>
+      <ul>
+        <li>
+          <%= t.start_time.strftime('%H:%M') %>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>

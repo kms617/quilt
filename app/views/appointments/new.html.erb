@@ -1,0 +1,26 @@
+<h1>Set Availability:</h1>
+
+<div class="text-center">
+  <h3><%= @date.strftime('%A %B %-d, %Y') %></h3>
+</div>
+<div>
+  <button id="btn">Next<span id="btn-counter"></span></button>
+</div>
+
+<%= form_tag appointments_path(method: :post) do %>
+  <% @timeslots.each do |t| %>
+    <% if t.start_time.strftime('%b %d') == @date.strftime('%b %d') %>
+      <ul>
+        <li>
+          <%= t.start_time.strftime('%H:%M') %>
+          <% if Appointment.exists?(timeslot_id: t)%>
+            Available? <%= check_box_tag "available_times[]", t.id, {checked: "checked"}%>
+          <% else %>
+            Available? <%= check_box_tag "available_times[]", t.id %>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+  <%= submit_tag 'Submit'%>
+<% end %>
