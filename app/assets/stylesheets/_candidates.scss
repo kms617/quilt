@@ -92,22 +92,27 @@ div.candidate-div {
       color: $dark-gray;
     }
 
-    simple_form.edit_candidate {
-      div.modal {
-          input {
-            @include span-columns(4 of 7);
-          }
+    div.modal-inner {
 
-          label {
-            @include span-columns(3 of 7);
-            color: $base-font-color;
-          }
+      div.modal-form {
+      @include span-columns(7);
+      clear: both;
 
-          select {
-            @include span-columns(4 of 7);
-          }
+        select {
+          @include shift(3 of 7);
+          @include span-columns(4 of 7);
         }
-      
+
+        label {
+          @include span-columns(3 of 7);
+          margin-left: 0px;
+          margin-top: 0px;
+          padding-top: 0px;
+          font-size: 1em;
+          width: 10%;
+          text-align: right;
+        }
+      }
     }
   }
 }
