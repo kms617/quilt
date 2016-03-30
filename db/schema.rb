@@ -33,22 +33,22 @@ ActiveRecord::Schema.define(version: 20160326160320) do
     t.string  "last_name"
     t.string  "email"
     t.string  "phone"
-    t.string  "zipcode",           default: "32256"
-    t.string  "radius"
-    t.string  "status",            default: "Walk In"
+    t.string  "zip",            default: "32256"
+    t.string  "travel_limit"
+    t.string  "status",         default: "New Lead"
+    t.string  "source",         default: "Walk In"
     t.date    "date_available"
-    t.string  "race"
+    t.string  "ethnicity"
     t.string  "gender"
-    t.boolean "veteran_status"
-    t.boolean "disability_status"
-    t.boolean "eligible",          default: true
-    t.integer "industry_id"
+    t.string  "veteran"
+    t.string  "disability"
+    t.boolean "eligible",       default: true
+    t.integer "category_id"
   end
 
-  create_table "industries", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string  "name"
     t.integer "bullhorn_id"
-    t.integer "candidate_id"
     t.string  "image"
   end
 

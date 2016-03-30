@@ -1,12 +1,13 @@
 class CandidatesController < ApplicationController
+
   def new
     @candidate = Candidate.new
   end
 
   def create
-    @industry = Industry.find(params[:industry_id])
+    @category = Category.find(params[:category_id])
     @candidate = Candidate.new(candidate_params)
-    @candidate.industry = @industry
+    @candidate.category = @category
 
     if @candidate.save
       redirect_to edit_candidate_path(@candidate)
@@ -27,6 +28,7 @@ class CandidatesController < ApplicationController
     else
       render :edit
     end
+    
   end
 
   private
@@ -38,13 +40,13 @@ class CandidatesController < ApplicationController
                                       :phone,
                                       :date_available,
                                       :eligible,
-                                      :zipcode,
-                                      :radius,
-                                      :veteran_status,
-                                      :disability_status,
+                                      :zip,
+                                      :travel_limit,
+                                      :veteran,
+                                      :disability,
                                       :gender,
-                                      :race,
-                                      :industry_id
+                                      :ethnicity,
+                                      :category_id
 
                                       )
   end

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :candidates, only: [:edit, :update]
 
-  resources :industries, only: [:index]
-  resources :industries do
+  resources :categories, only: [:index]
+  resources :categories do
     resources :candidates, only: [:new, :create]
   end
 end

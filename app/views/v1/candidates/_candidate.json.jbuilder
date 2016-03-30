@@ -1,0 +1,10 @@
+json.first_name candidate.first_name
+json.last_name candidate.last_name
+json.category candidate.category.bullhorn_id
+json.phone candidate.phone
+json.email candidate.email
+json.zip candidate.zip
+json.gender candidate.gender
+json.veteran candidate.veteran
+json.disability candidate.disability
+json.ethnicity candidate.ethnicity

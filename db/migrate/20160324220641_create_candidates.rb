@@ -5,16 +5,17 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :last_name
       t.string :email
       t.string :phone
-      t.string :zipcode, default: '32256'
-      t.string :radius
-      t.string :status, default: 'Walk In'
+      t.string :zip, default: '32256'
+      t.string :travel_limit
+      t.string :status, default: 'New Lead'
+      t.string :source, default: 'Walk In'
       t.date :date_available
-      t.string :race
+      t.string :ethnicity
       t.string :gender
-      t.string :veteran_status
-      t.string :disability_status
+      t.string :veteran
+      t.string :disability
       t.boolean :eligible, default: true
-      t.integer :industry_id
+      t.integer :category_id
     end
   end
 end
