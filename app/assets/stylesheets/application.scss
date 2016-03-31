@@ -45,6 +45,8 @@ input[type="checkbox"] + label:after {
 }
 
 ul {
+  padding-left: 0;
+  
   li {
     list-style: none;
     display:inline-block;
@@ -56,11 +58,23 @@ ul {
 }
 
 .four-span {
-  @include span-columns(4);
+  @include span-columns(3);
 }
 
 .two-span {
   @include span-columns(2);
+}
+
+.head_div {
+  display: flex;
+  height: 60px;
+  margin: 0 auto;
+  @include outer-container;
+}
+
+.head-element {
+  margin: auto 0;
+  font-weight: 100;
 }
 
 .dropdown {
@@ -118,6 +132,8 @@ ul {
 
 .material-icons {
   color: $action-button;
+  margin: auto;
+
 }
 
 .cand_day {
@@ -125,24 +141,16 @@ ul {
   @include omega();
 }
 
-.head_div {
-  @include outer-container;
-}
-
-.head-element {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .sched_day {
-  @include span-columns(4);
+  @include span-columns(3);
   @include omega();
+  text-align: center;
 }
 
 .submit {
   color: #fff;
-  background-color: $primary-blue;
-  border-color: $primary-blue;
+  background-color: $action-button;
+  border-color: $action-button;
   display: inline-block;
   padding: 8px 14px;
   margin-bottom: 0;
@@ -178,8 +186,6 @@ ul {
 .ThemeHeadingText {
   color: #222;
   font-size: 17px;
-  font-weight: 600;
-  padding: 15px 10px 15px 4px;
   // background: #f6f6f6;
   // background: linear-gradient(to right, #fff, #f6f6f6 35%);
 }
