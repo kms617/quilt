@@ -1,19 +1,25 @@
-<h1>Set Availability:</h1>
 
-<div class="text-center">
-  <h3><%= @date.strftime('%A %B %-d, %Y') %></h3>
-</div>
 <div>
-  <button id="btn">Next<span id="btn-counter"></span></button>
+  <h1 class="ThemeHeadingText"><i class="material-icons" id="circle">fiber_manual_record</i>Set Availability:</h1>
+  <%= link_to('<i class="material-icons">arrow_back</i>'.html_safe,
+      new_appointment_path(@yesterday))%>
+  <%= link_to('<i class="material-icons">today</i>'.html_safe,
+      new_appointment_path(month: Time.now.month, day: Time.now.day, year: Time.now.year))%>
+  <%= link_to('<i class="material-icons">arrow_forward</i>'.html_safe,
+      new_appointment_path(@tomorrow))%>
 </div>
 
 <%= form_tag appointments_path(method: :post) do %>
+  <%= submit_tag 'Submit', class: "submit" %>
+
+<div class="sched_day">
+  <h3><%= (@date - 1).strftime('%A %B %-d, %Y') %></h3>
   <% @timeslots.each do |t| %>
-    <% if t.start_time.strftime('%b %d') == @date.strftime('%b %d') %>
+    <% if t.start_time.strftime('%b %d') == (@date - 1).strftime('%b %d') %>
       <ul>
         <li>
           <%= t.start_time.strftime('%H:%M') %>
-          <% if Appointment.exists?(timeslot_id: t)%>
+          <% if Appointment.exists?(timeslot_id: t, recruiter_id: current_recruiter.id) %>
             Available? <%= check_box_tag "available_times[]", t.id, {checked: "checked"}%>
           <% else %>
             Available? <%= check_box_tag "available_times[]", t.id %>
@@ -22,5 +28,40 @@
       </ul>
     <% end %>
   <% end %>
-  <%= submit_tag 'Submit'%>
+  </div>
+<div class="sched_day">
+  <h3><%= @date.strftime('%A %B %-d, %Y') %></h3>
+  <% @timeslots.each do |t| %>
+    <% if t.start_time.strftime('%b %d') == @date.strftime('%b %d') %>
+      <ul>
+        <li>
+          <%= t.start_time.strftime('%H:%M') %>
+          <% if Appointment.exists?(timeslot_id: t, recruiter_id: current_recruiter.id) %>
+            Available? <%= check_box_tag "available_times[]", t.id, {checked: "checked"}%>
+          <% else %>
+            Available? <%= check_box_tag "available_times[]", t.id %>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+  </div>
+<div class="sched_day">
+  <h3><%= (@date + 1).strftime('%A %B %-d, %Y') %></h3>
+  <% @timeslots.each do |t| %>
+    <% if t.start_time.strftime('%b %d') == (@date + 1).strftime('%b %d') %>
+      <ul>
+        <li>
+          <%= t.start_time.strftime('%H:%M') %>
+          <% if Appointment.exists?(timeslot_id: t, recruiter_id: current_recruiter.id) %>
+            Available? <%= check_box_tag "available_times[]", t.id, {checked: "checked"}%>
+          <% else %>
+            Available? <%= check_box_tag "available_times[]", t.id %>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+<%= submit_tag 'Submit', class: "submit" %>
 <% end %>

@@ -1,0 +1,13 @@
+<h1 class="ThemeHeadingText">Confirm Appointment Time:</h1>
+
+<%= @appointment.timeslot.start_time.strftime('%A %B %-d, %Y') %>
+<%= @appointment.timeslot.start_time.strftime('%H:%M') %>
+<%= @appointment.recruiter.id %>
+
+<%= button_to "Confirm?", appointment_path(@appointment), method: :put %>
+<%= link_to "Return to Times", appointments_path(
+  day: Date.today.day,
+  month: Date.today.month,
+  year: Date.today.year),
+  method: :get,
+  class: :button %>

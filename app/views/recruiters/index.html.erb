@@ -1,0 +1,13 @@
+<div>
+  <%= link_to "Recruiter View", new_appointment_path(
+        day: Date.today.day,
+        month: Date.today.month,
+        year: Date.today.year)%>
+</div>
+
+<div>
+  <%= link_to "Candidate View", appointments_path(
+        day: Date.today.day,
+        month: Date.today.month,
+        year: Date.today.year)%>
+</div>

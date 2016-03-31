@@ -1,11 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
+# TIMESLOTS:
 01.upto(31) do |d|
   8.upto(18) do |h|
     Timeslot.create(start_time: DateTime.strptime("03/#{d}/2016 #{h}:00", "%m/%d/%Y %H:%M"))
@@ -14,8 +7,45 @@
 end
 
 01.upto(30) do |d|
-  8.upto(18) do |i|
-    Timeslot.create(start_time: DateTime.strptime("04/#{d}/2016 #{i}:00", "%m/%d/%Y %H:%M"))
-    Timeslot.create(start_time: DateTime.strptime("04/#{d}/2016 #{i}:30", "%m/%d/%Y %H:%M"))
+  8.upto(18) do |h|
+    Timeslot.create(start_time: DateTime.strptime("04/#{d}/2016 #{h}:00", "%m/%d/%Y %H:%M"))
+    Timeslot.create(start_time: DateTime.strptime("04/#{d}/2016 #{h}:30", "%m/%d/%Y %H:%M"))
+  end
+end
+
+01.upto(31) do |d|
+  8.upto(18) do |h|
+    Timeslot.create(start_time: DateTime.strptime("05/#{d}/2016 #{h}:00", "%m/%d/%Y %H:%M"))
+    Timeslot.create(start_time: DateTime.strptime("05/#{d}/2016 #{h}:30", "%m/%d/%Y %H:%M"))
+  end
+end
+
+# RECRUITERS
+Recruiter.create(id: 11, first_name: 'Son', last_name: "Trinh", email: "son@bullhorn.com", password: "password", password_confirmation: "password")
+Recruiter.create(id: 12, first_name: 'Kristen', last_name: "Smith", email: "kristen@bullhorn.com", password: "password", password_confirmation: "password")
+Recruiter.create(id: 13, first_name: 'Leon', last_name: "Russo", email: "leon@bullhorn.com", password: "password", password_confirmation: "password")
+Recruiter.create(id: 14, first_name: 'Melanie', last_name: "Mosquera", email: "melanie@bullhorn.com", password: "password", password_confirmation: "password")
+Recruiter.create(id: 15, first_name: 'Chris', last_name: "Vasich", email: "chris@bullhorn.com", password: "password", password_confirmation: "password")
+Recruiter.create(id: 16, first_name: 'Dennis', last_name: "McQuilken", email: "dennis@bullhorn.com", password: "password", password_confirmation: "password")
+
+# APPOINTMENTS
+Timeslot.all.each do |t|
+  if t.start_time.strftime("%H").include?("8" || "9")
+    Appointment.create(recruiter_id: 11, timeslot_id: t.id)
+  end
+  if t.start_time.strftime("%H").include?("9" || "10")
+    Appointment.create(recruiter_id: 12, timeslot_id: t.id)
+  end
+  if t.start_time.strftime("%H").include?("11" || "12")
+    Appointment.create(recruiter_id: 13, timeslot_id: t.id)
+  end
+  if t.start_time.strftime("%H").include?("13" || "14")
+    Appointment.create(recruiter_id: 14, timeslot_id: t.id)
+  end
+  if t.start_time.strftime("%H").include?("15" || "16")
+    Appointment.create(recruiter_id: 15, timeslot_id: t.id)
+  end
+  if t.start_time.strftime("%H").include?("17" || "18")
+    Appointment.create(recruiter_id: 16, timeslot_id: t.id)
   end
 end
