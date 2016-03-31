@@ -108,6 +108,11 @@ ul {
   color: $action-button;
 }
 
+.cand_day {
+  @include span-columns(6);
+  @include omega();
+}
+
 .sched_day {
   @include span-columns(4);
   @include omega();

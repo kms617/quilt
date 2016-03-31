@@ -8,9 +8,9 @@
       appointments_path(@tomorrow))%>
 </div>
 
-  <h3><%= @date.strftime('%A %B %-d, %Y') %></h3>
-  <h3><%= (@date + 1).strftime('%A %B %-d, %Y') %></h3>
 
+<div class="cand_day">
+  <h3><%= @date.strftime('%A %B %-d, %Y') %></h3>
   <% @appointments.each do |a| %>
     <% if a.timeslot.start_time.strftime('%b %d') == @date.strftime('%b %d') %>
       <ul>
@@ -22,6 +22,11 @@
         <% end %>
       </ul>
     <% end %>
+  <% end %>
+</div>
+<div class="cand_day">
+  <h3><%= (@date + 1).strftime('%A %B %-d, %Y') %></h3>
+  <% @appointments.each do |a| %>
     <% if a.timeslot.start_time.strftime('%b %d') == (@date + 1).strftime('%b %d') %>
     <ul>
       <% if Appointment.exists?(timeslot_id: a.timeslot)%>
@@ -31,6 +36,6 @@
         </li>
       <% end %>
     </ul>
-
-    <% end %>
   <% end %>
+</div>
+<% end %>
