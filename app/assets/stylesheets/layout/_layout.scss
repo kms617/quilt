@@ -1,0 +1,13 @@
+html, body {
+  height: 100%;
+}
+
+div.content {
+  height: 100%;
+}
+
+main {
+  min-height: 100%;
+  padding: $base-spacing;
+  width: $max-width;
+}

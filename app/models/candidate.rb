@@ -4,4 +4,5 @@ class Candidate < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_one :appointment
+  belongs_to :category
 end

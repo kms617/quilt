@@ -1,0 +1,118 @@
+div.banner-contain {
+
+  background-color: $bright-blue;
+
+  h1 {
+    color: $white;
+    margin-left: 75px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+div.candidate-div {
+  @include outer-container;
+
+  h2 {
+    margin-left: 75px;
+    color: $blue;
+    font-size: 30px;
+    padding-top: 25px;
+  }
+
+  h3 {
+    margin-left: 75px;
+    color: $bright-blue;
+    font-size: 25px;
+  }
+
+  h6 {
+    margin-left: 75px;
+    margin-bottom: 25px;
+    font-weight: normal;
+  }
+
+  form {
+    @include span-columns(7);
+    clear: both;
+
+    div.input {
+      &.boolean {
+        @include shift(3 of 7);
+        @include span-columns(4 of 7);
+
+        input.boolean {
+          display: inline-block;
+          margin-right: $base-spacing;
+          width: auto;
+        }
+
+        label {
+          align-items: center;
+          display: flex;
+          text-align: left;
+          width: 100%;
+          font-size: 75%;
+        }
+      }
+
+      input {
+        @include span-columns(4 of 7);
+      }
+
+      label {
+        @include span-columns(3 of 7);
+        color: $base-font-color;
+      }
+
+      input#candidate_last_name {
+        @include shift(3);
+      }
+
+      label {
+        text-align: right;
+      }
+
+      select {
+        @include span-columns(4 of 7);
+      }
+    }
+    input.btn {
+      @include shift(3 of 7);
+    }
+
+    div.modal-trigger {
+      display: table;
+      @include shift(2 of 10);
+      padding: 7px 10px 7px 10px;
+      font-size: 20px;
+      border-width: thin;
+      background-color: $light-green;
+      border-radius: 0px;
+      color: $dark-gray;
+    }
+
+    div.modal-inner {
+
+      div.modal-form {
+      @include span-columns(7);
+      clear: both;
+
+        select {
+          @include shift(3 of 7);
+          @include span-columns(4 of 7);
+        }
+
+        label {
+          @include span-columns(3 of 7);
+          margin-left: 0px;
+          margin-top: 0px;
+          padding-top: 0px;
+          font-size: 1em;
+          width: 10%;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TIMESLOTS:
 01.upto(31) do |d|
   8.upto(18) do |h|
@@ -49,3 +50,9 @@ Timeslot.all.each do |t|
     Appointment.create(recruiter_id: 16, timeslot_id: t.id)
   end
 end
+=======
+Category.create(name: 'Clerical', image: 'clerical.png', bullhorn_id: 1472778)
+Category.create(name: 'Accounting and Finance', image: 'finance.png', bullhorn_id: 1472765)
+Category.create(name: 'Manufacturing', image: 'manufacturing.png', bullhorn_id: 1472805)
+Category.create(name: 'Hospitality', image: 'hospitality.png', bullhorn_id: 1472801)
+>>>>>>> ks-candidate

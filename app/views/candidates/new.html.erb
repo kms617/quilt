@@ -1,0 +1,17 @@
+<%= render "topbar" %>
+<div class="banner-contain">
+  <h1 class="banner-content">Create a Profile with Adecco</h1>
+</div>
+<%= render 'form_errors.html.erb', object: @candidate  %>
+<div class= candidate-div>
+<h2></h2>
+<h3>Create a profile to get started!</h3>
+<h6>Tell us a little bit about yourself.</h6>
+<%= simple_form_for [@industry, @candidate], url: {action: :create} do |form| %>
+  <%= form.input :first_name, label: 'Name', placeholder: 'First Name', error: false %>
+  <%= form.input :last_name, label: false, placeholder: 'Last Name', error: false %>
+  <%= form.input :email, placeholder: 'myemail@mail.com', error: false %>
+  <%= form.input :phone, placeholder: '555-5555', error: false %>
+  <%= form.button :submit, "Next" %> <%= link_to 'Cancel', root_path %></p>
+<% end %>
+</div>
