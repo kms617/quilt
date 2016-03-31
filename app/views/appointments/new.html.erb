@@ -1,17 +1,23 @@
 
-<div>
-  <h1 class="ThemeHeadingText"><i class="material-icons" id="circle">fiber_manual_record</i>Set Availability:</h1>
-  <%= link_to('<i class="material-icons">arrow_back</i>'.html_safe,
-      new_appointment_path(@yesterday))%>
-  <%= link_to('<i class="material-icons">today</i>'.html_safe,
-      new_appointment_path(month: Time.now.month, day: Time.now.day, year: Time.now.year))%>
-  <%= link_to('<i class="material-icons">arrow_forward</i>'.html_safe,
-      new_appointment_path(@tomorrow))%>
+<div class="head_div">
+  <div class="four-span head-element">
+    <div class="ThemeHeadingText"><i class="material-icons" id="circle">fiber_manual_record</i>Set Availability:</div>
+  </div>
+  <div class="day-nav head-element">
+    <%= link_to('<i class="material-icons">arrow_back</i>'.html_safe,
+        new_appointment_path(@yesterday))%>
+    <%= link_to('<i class="material-icons">today</i>'.html_safe,
+        new_appointment_path(month: Time.now.month, day: Time.now.day, year: Time.now.year))%>
+    <%= link_to('<i class="material-icons">arrow_forward</i>'.html_safe,
+        new_appointment_path(@tomorrow))%>
+  </div>
+  <div class="two-span head-element">
+    <%= submit_tag 'Submit', class: "submit" %>
+  </div>
 </div>
 
 <%= form_tag appointments_path(method: :post) do %>
 
-<div><%= submit_tag 'Submit', class: "submit" %></div>
 
 <div class="sched_day">
   <h3><%= (@date - 1).strftime('%A %B %-d, %Y') %></h3>

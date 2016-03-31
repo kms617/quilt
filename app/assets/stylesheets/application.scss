@@ -51,6 +51,18 @@ ul {
   }
 }
 
+.day-nav {
+  @include span-columns(2);
+}
+
+.four-span {
+  @include span-columns(4);
+}
+
+.two-span {
+  @include span-columns(2);
+}
+
 .dropdown {
 
   button:after {
@@ -113,6 +125,15 @@ ul {
   @include omega();
 }
 
+.head_div {
+  @include outer-container;
+}
+
+.head-element {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .sched_day {
   @include span-columns(4);
   @include omega();
@@ -155,12 +176,12 @@ ul {
 }
 
 .ThemeHeadingText {
-    color: #222;
-    font-size: 17px;
-    font-weight: 600;
-    padding: 15px 10px 15px 4px;
-    // background: #f6f6f6;
-    // background: linear-gradient(to right, #fff, #f6f6f6 35%);
+  color: #222;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 15px 10px 15px 4px;
+  // background: #f6f6f6;
+  // background: linear-gradient(to right, #fff, #f6f6f6 35%);
 }
 
 #circle {
