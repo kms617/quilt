@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TIMESLOTS:
 01.upto(31) do |d|
   8.upto(18) do |h|
@@ -23,7 +22,7 @@ end
 
 # RECRUITERS
 Recruiter.create(id: 11, first_name: 'Son', last_name: "Trinh", email: "son@bullhorn.com", password: "password", password_confirmation: "password")
-Recruiter.create(id: 12, first_name: 'Kristen', last_name: "Smith", email: "kristen@bullhorn.com", password: "password", password_confirmation: "password")
+Recruiter.create(id: 12, first_name: 'Kristin', last_name: "Smith", email: "kristin@bullhorn.com", password: "password", password_confirmation: "password")
 Recruiter.create(id: 13, first_name: 'Leon', last_name: "Russo", email: "leon@bullhorn.com", password: "password", password_confirmation: "password")
 Recruiter.create(id: 14, first_name: 'Melanie', last_name: "Mosquera", email: "melanie@bullhorn.com", password: "password", password_confirmation: "password")
 Recruiter.create(id: 15, first_name: 'Chris', last_name: "Vasich", email: "chris@bullhorn.com", password: "password", password_confirmation: "password")
@@ -50,9 +49,9 @@ Timeslot.all.each do |t|
     Appointment.create(recruiter_id: 16, timeslot_id: t.id)
   end
 end
-=======
+
+# CATEGORIES
 Category.create(name: 'Clerical', image: 'clerical.png', bullhorn_id: 1472778)
 Category.create(name: 'Accounting and Finance', image: 'finance.png', bullhorn_id: 1472765)
 Category.create(name: 'Manufacturing', image: 'manufacturing.png', bullhorn_id: 1472805)
 Category.create(name: 'Hospitality', image: 'hospitality.png', bullhorn_id: 1472801)
->>>>>>> ks-candidate

@@ -1,18 +1,13 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+  root to: 'welcome#home'
+  get 'welcome/disclaimer'
 
   devise_for :candidates
   devise_for :recruiters
-  resources :timeslots
 
+  resources :timeslots
   resources :recruiters
   resources :appointments
-
-  root 'recruiters#index'
-
-=======
-  root to: 'welcome#home'
-  get 'welcome/disclaimer'
 
   get '/auth/:provider/callback', to: 'sessions#create'
 
@@ -22,5 +17,4 @@ Rails.application.routes.draw do
   resources :categories do
     resources :candidates, only: [:new, :create]
   end
->>>>>>> ks-candidate
 end
