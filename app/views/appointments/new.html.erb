@@ -6,8 +6,14 @@
   <div class="day-nav head-element">
     <%= link_to('<i class="material-icons">arrow_back</i>'.html_safe,
         new_appointment_path(@yesterday))%>
-    <%= link_to('<i class="material-icons">today</i>'.html_safe,
-        new_appointment_path(month: Time.now.month, day: Time.now.day, year: Time.now.year))%>
+    <%= link_to(new_appointment_path(
+        month: Time.now.month,
+        day: Time.now.day,
+        year: Time.now.year)) do %>
+      <i class="bhi-calendar"></i>
+      Today
+    <% end %>
+
     <%= link_to('<i class="material-icons">arrow_forward</i>'.html_safe,
         new_appointment_path(@tomorrow))%>
   </div>
@@ -72,4 +78,5 @@
     <% end %>
   </div>
 </div>
+
 <% end %>
