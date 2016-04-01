@@ -19,5 +19,22 @@
 }
 
 .bhi-calendar::before {
-    content: "\e60a";
+  content: "\e60a";
+}
+
+.bhi-next::before {
+  content: "\e645";
+}
+
+.bhi-previous::before {
+  content: "\e64f";
+}
+
+a {
+  text-decoration: none;
+  font-size: 28px;
+}
+
+a:visited {
+  color: $action-button;
 }

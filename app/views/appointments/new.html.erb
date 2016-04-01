@@ -4,18 +4,18 @@
     <div class="ThemeHeadingText"><i class="material-icons" id="circle">fiber_manual_record</i>Set Availability:</div>
   </div>
   <div class="day-nav head-element">
-    <%= link_to('<i class="material-icons">arrow_back</i>'.html_safe,
-        new_appointment_path(@yesterday))%>
+    <%= link_to(new_appointment_path(@yesterday)) do %>
+      <i class="bhi-previous"></i>
+    <% end %>
     <%= link_to(new_appointment_path(
         month: Time.now.month,
         day: Time.now.day,
         year: Time.now.year)) do %>
       <i class="bhi-calendar"></i>
-      Today
     <% end %>
-
-    <%= link_to('<i class="material-icons">arrow_forward</i>'.html_safe,
-        new_appointment_path(@tomorrow))%>
+    <%= link_to(new_appointment_path(@tomorrow)) do %>
+      <i class="bhi-next"></i>
+    <% end %>
   </div>
   <div class="two-span head-element">
     <%= submit_tag 'Submit', class: "submit" %>
