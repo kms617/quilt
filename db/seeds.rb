@@ -21,12 +21,12 @@ end
 end
 
 # RECRUITERS
-Recruiter.create(id: 11, first_name: 'Son', last_name: "Trinh", email: "son@bullhorn.com", password: "password", password_confirmation: "password")
-Recruiter.create(id: 12, first_name: 'Kristin', last_name: "Smith", email: "k.smith@bullhorn.com", password: "password", password_confirmation: "password")
-Recruiter.create(id: 13, first_name: 'Leon', last_name: "Russo", email: "leon.russo@bullhorn.com", password: "password", password_confirmation: "password")
-Recruiter.create(id: 14, first_name: 'Melanie', last_name: "Mosquera", email: "mmosquera@bullhorn.com", password: "password", password_confirmation: "password")
-Recruiter.create(id: 15, first_name: 'Chris', last_name: "Vasich", email: "cvasich@bullhorn.com", password: "password", password_confirmation: "password")
-Recruiter.create(id: 16, first_name: 'Dennis', last_name: "McQuilken", email: "dmcquilken@bullhorn.com", password: "password", password_confirmation: "password")
+Recruiter.create(id: 11, first_name: 'Son', last_name: "Trinh", email: "son@bullhorn.com", bullhorn_id: 5185260)
+Recruiter.create(id: 12, first_name: 'Kristin', last_name: "Smith", email: "k.smith@bullhorn.com", bullhorn_id: 5449213)
+Recruiter.create(id: 13, first_name: 'Leon', last_name: "Russo", email: "leon.russo@bullhorn.com")
+Recruiter.create(id: 14, first_name: 'Melanie', last_name: "Mosquera", email: "mmosquera@bullhorn.com", bullhorn_id: 5323157)
+Recruiter.create(id: 15, first_name: 'Chris', last_name: "Vasich", email: "cvasich@bullhorn.com")
+Recruiter.create(id: 16, first_name: 'Dennis', last_name: "McQuilken", email: "dmcquilken@bullhorn.com")
 
 # APPOINTMENTS
 Timeslot.all.each do |t|
@@ -50,6 +50,7 @@ Timeslot.all.each do |t|
   end
 end
 
+# CATEGORIES
 Category.create(name: 'Clerical', image: 'clerical.png', bullhorn_id: 1472778)
 Category.create(name: 'Accounting and Finance', image: 'finance.png', bullhorn_id: 1472765)
 Category.create(name: 'Manufacturing', image: 'manufacturing.png', bullhorn_id: 1472805)

@@ -1,7 +1,6 @@
 source 'https://rubygems.org/'
 
 gem 'bourbon'
-gem 'devise'
 gem 'email_validator'
 gem 'flutie'
 gem 'httparty'
