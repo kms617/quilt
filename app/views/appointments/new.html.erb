@@ -31,7 +31,7 @@
     <% if t.start_time.strftime('%b %d') == (@date - 1).strftime('%b %d') %>
       <ul>
         <li>
-          <% if Appointment.exists?(timeslot_id: t, recruiter_id: current_recruiter.id) %>
+          <% if Appointment.exists?(timeslot_id: t, recruiter_id: 11) %>
             <%= check_box_tag "available_times[]", t.id, {checked: "checked"}%>
           <% else %>
             <%= check_box_tag "available_times[]", t.id %>
@@ -48,7 +48,7 @@
     <% if t.start_time.strftime('%b %d') == @date.strftime('%b %d') %>
       <ul>
         <li>
-          <% if Appointment.exists?(timeslot_id: t, recruiter_id: current_recruiter.id) %>
+          <% if Appointment.exists?(timeslot_id: t, recruiter_id: 11) %>
             <%= check_box_tag "available_times[]", t.id, {checked: "checked"}%>
           <% else %>
             <%= check_box_tag "available_times[]", t.id %>
@@ -66,7 +66,7 @@
       <% if t.start_time.strftime('%b %d') == (@date + 1).strftime('%b %d') %>
         <ul>
           <li>
-            <% if Appointment.exists?(timeslot_id: t, recruiter_id: current_recruiter.id) %>
+            <% if Appointment.exists?(timeslot_id: t, recruiter_id: 11) %>
               <%= check_box_tag "available_times[]", t.id, {checked: "checked"}%>
             <% else %>
               <%= check_box_tag "available_times[]", t.id %>

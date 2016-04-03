@@ -1,5 +1,4 @@
 class AppointmentsController < ApplicationController
-  before_action :authenticate_recruiter!, only: [:new, :create]
 
   def index
     @date = date
@@ -7,7 +6,8 @@ class AppointmentsController < ApplicationController
     @tomorrow = tomorrow
     timeslots = Timeslot.all
     @timeslots = timeslots.order(start_time: :asc)
-    @appointments = Appointment.all
+    @appointments = appointments_for_select
+    @candidate = params[:candidate_id]
   end
 
   def edit
@@ -15,9 +15,11 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    Appointment.update(candidate_id: current_candidate.id)
-    # flash[:notice] = "Availability updated!"
-    redirect_to(:back)
+    @appointment = Appointment.find(params[:id])
+    @candidate = Candidate.find(params[:candidate_id])
+    @appointment.candidate = @candidate
+    flash[:notice] = "#{@appointment.recruiter.first_name} will be with you shortly. Thank you."
+    redirect_to welcome_home_path
   end
 
   def new
@@ -32,12 +34,12 @@ class AppointmentsController < ApplicationController
   def create
     Appointment.all.each do |a|
       if params[:available_times].exclude?(a.timeslot_id)
-        Appointment.destroy_all(timeslot_id: a.timeslot_id, recruiter_id: current_recruiter.id)
+        Appointment.destroy_all(timeslot_id: a.timeslot_id, recruiter_id: Recruiter.first.id)
       end
     end
     params[:available_times].each do |appt|
       unless Appointment.exists?(timeslot_id: appt)
-        Appointment.create(timeslot_id: appt, recruiter_id: current_recruiter.id)
+        Appointment.create(timeslot_id: appt, recruiter_id: Recruiter.first.id)
       end
     end
     # binding.pry
@@ -49,7 +51,11 @@ class AppointmentsController < ApplicationController
 
   def date(date_arg = nil)
     return Date.parse(date_arg) if date_arg
-    Date.parse("#{params[:year]}-#{params[:month]}-#{params[:day]}")
+    if params[:year]
+      Date.parse("#{params[:year]}-#{params[:month]}-#{params[:day]}")
+    else
+      Date.today
+    end
   end
 
   def yesterday
@@ -69,7 +75,15 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:timeslot_id)
+    params.require(:appointment).permit(:timeslot_id, :candidate_id, :recruiter_id)
     # .merge(reviewer_id: current_reviewer.id)
+  end
+
+  def appointments_for_select
+    if params[:appointment] == nil
+      Appointment.where(candidate_id: nil)
+    else
+      Appointment.where(candidate_id: nil, recruiter_id: params[:appointment][:recruiter_id])
+    end
   end
 end
