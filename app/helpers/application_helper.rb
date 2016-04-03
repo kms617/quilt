@@ -13,6 +13,6 @@ module ApplicationHelper
   end
 
   def veteran_status_for_select
-    [[nil, 'U'], ['I am a veteran of the US Armed Forces', 'Y'] ["I am not a veteran.", 'N']]
+    [[nil, 'U'], ['I am a veteran of the US Armed Forces.', 'Y'], ['I am not a veteran,', 'N']]
   end
 end

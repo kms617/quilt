@@ -1,6 +1,6 @@
 // Typography
-$main-font: 'Proxima', $helvetica;
-$sans-serif: $main-font;
+$proxima: 'proxima-nova', $helvetica;
+$sans-serif: $proxima;
 $serif: $georgia;
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
@@ -27,6 +27,8 @@ $sidebar-width: 200px;
 
 // Colors
 $blue: #67889A;
+$dark-blue: #4F758B;
+$bright-blue: #0095C8;
 $dark-gray: #3A4449;
 $medium-dark-gray: #576166;
 $medium-gray: #DDD;
@@ -35,7 +37,6 @@ $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #D6E342;
 $orange: #DF904D;
-$bright-blue: #0095C8;
 $white: #FFFFFF;
 
 // Background Color

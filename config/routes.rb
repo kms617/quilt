@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :candidates
   devise_for :recruiters
-  resources :timeslots
 
+  resources :timeslots
   resources :recruiters
   resources :appointments
 
@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
 
   resources :candidates, only: [:edit, :update]
+  resources :candidates do
+    resources :appointments, only: [:index, :edit, :update]
+  end
 
   resources :categories, only: [:index]
   resources :categories do

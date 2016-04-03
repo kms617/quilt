@@ -23,7 +23,7 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.find(params[:id])
 
     if @candidate.update(candidate_params)
-      redirect_to root_path
+      redirect_to candidate_appointments_path(@candidate)
     else
       render :edit
     end
@@ -41,10 +41,10 @@ class CandidatesController < ApplicationController
                                       :eligible,
                                       :zip,
                                       :travel_limit,
-                                      :veteran,
                                       :disability,
                                       :gender,
                                       :ethnicity,
+                                      :veteran,
                                       :category_id
 
                                       )
