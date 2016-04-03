@@ -3,4 +3,71 @@ div.category {
   background-color: $white;
   height: 100%;
   margin-top: 20px;
+
+  &.li {
+   height: 50px;
+   overflow: hidden;
+   position: relative;
+  }
+
+  &.li:odd{
+   /* Apply animation to this element */
+   -moz-animation: category 2s ease-out;
+   -webkit-animation: category 2s ease-out;
+   animation: category 2s ease-out;
+  }
+
+  &.li:even {
+    /* Starting position */
+-moz-transform:translateX(-100%);
+-webkit-transform:translateX(-100%);
+transform:translateX(-100%);
+
+/* Apply animation to this element */
+-moz-animation: category2 2s linear infinite;
+-webkit-animation: category2 2s linear infinite;
+animation: category2 2s linear infinite;
 }
+/* Move it (define the animation) */
+@-moz-keyframes category2 {
+0%   { -moz-transform: translateX(-100%); }
+100% { -moz-transform: translateX(100%); }
+}
+@-webkit-keyframes category2 {
+0%   { -webkit-transform: translateX(-100%); }
+100% { -webkit-transform: translateX(100%); }
+}
+@keyframes category2 {
+0%   {
+-moz-transform: translateX(-100%); /* Firefox bug fix */
+-webkit-transform: translateX(-100%); /* Firefox bug fix */
+transform: translateX(-100%);
+}
+100% {
+-moz-transform: translateX(100%); /* Firefox bug fix */
+-webkit-transform: translateX(100%); /* Firefox bug fix */
+transform: translateX(100%);
+}
+}
+  }
+  /* Move it (define the animation) */
+  @-moz-keyframes category {
+   0%   { -moz-transform: translateX(200%); }
+   100% { -moz-transform: translateX(0%); }
+  }
+  @-webkit-keyframes category {
+   0%   { -webkit-transform: translateX(200%); }
+   100% { -webkit-transform: translateX(0%); }
+  }
+  @keyframes category {
+   0%   {
+   -moz-transform: translateX(200%); /* Firefox bug fix */
+   -webkit-transform: translateX(200%); /* Firefox bug fix */
+   transform: translateX(200%);
+   }
+   100% {
+   -moz-transform: translateX(0%); /* Firefox bug fix */
+   -webkit-transform: translateX(0%); /* Firefox bug fix */
+   transform: translateX(0%);
+   }
+  }

@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   resources :recruiters
   resources :appointments
 
-  get '/auth/:provider/callback', to: 'sessions#create'
-
   resources :candidates, only: [:edit, :update]
+  resources :candidates do
+    resources :appointments, only: [:index, :edit, :update]
+  end
 
   resources :categories, only: [:index]
   resources :categories do

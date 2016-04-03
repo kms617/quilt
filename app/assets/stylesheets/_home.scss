@@ -2,22 +2,20 @@ div.home {
   @include span-columns(12);
   height: 100%;
 
-  img {
-      margin-top: 150px;
-  }
-
   span {
     display: inline-flex;
   }
 
   h1 {
-    font-weight: 800;
-    color: #315D9B;
-    margin-top: 75px;
-    margin-bottom: 50px;
-    font-size: 60px;
-    @include shift(1 of 12);
-    display: inline-table;
+    a {
+      font-weight: 400;
+      color: $dark-blue;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      font-size:  0.75em;
+      @include shift(1 of 12);
+      display: inline-table;
+    }
   }
 
   h2 {
