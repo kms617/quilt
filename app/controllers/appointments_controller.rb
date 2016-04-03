@@ -18,8 +18,8 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     @candidate = Candidate.find(params[:candidate_id])
     @appointment.candidate = @candidate
-    flash[:notice] = "#{@appointment.recruiter.first_name} will be with you shortly. Thank you."
-    redirect_to welcome_home_path
+      flash[:notice] = "#{@appointment.recruiter.first_name} will be ready for you at #{@appointment.timeslot.start_time.strftime('%l:%M %P')}. Thank you for signing up!"
+      redirect_to welcome_home_path
   end
 
   def new

@@ -23,7 +23,7 @@
     <ul>
       <% if Appointment.exists?(timeslot_id: a.timeslot)%>
         <li>
-          <%= a.timeslot.start_time.strftime('%H:%M') %>
+          <%= a.timeslot.start_time.strftime('%l:%M %P') %>
           <%= button_to "Select", edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit" %>
         </li>
       <% end %>
@@ -38,7 +38,7 @@
   <ul>
     <% if Appointment.exists?(timeslot_id: a.timeslot)%>
       <li>
-        <%= a.timeslot.start_time.strftime('%H:%M') %>
+        <%= a.timeslot.start_time.strftime('%l:%M %P') %>
         <%= button_to "Select", edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit" %>
       </li>
     <% end %>
