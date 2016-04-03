@@ -1,10 +1,4 @@
 class CandidatesController < ApplicationController
-<<<<<<< HEAD
-  def show
-    @candidate = Candidate.find(params[:id])
-  end
-=======
-
   def new
     @candidate = Candidate.new
   end
@@ -33,7 +27,7 @@ class CandidatesController < ApplicationController
     else
       render :edit
     end
-    
+
   end
 
   private
@@ -55,5 +49,4 @@ class CandidatesController < ApplicationController
 
                                       )
   end
->>>>>>> ks-candidate
 end
