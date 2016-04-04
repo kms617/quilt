@@ -1,25 +1,46 @@
 <%= render "topbar" %>
 <div class="banner-contain">
-  <h1 class="banner-content">Pick a time to meet with us</h1>
+  <h1 class="banner-content">Choose a time to meet with us</h1>
 </div>
 <div class= candidate-div>
-  <h2>Choose a Recruiter and a Time:</h2>
-  <%= form_tag candidate_appointments_path, method: "get" do %>
-    <%= select "appointment", "recruiter_id", options_for_select(recruiters_for_select, selected: params[:recruiter_id]), {prompt: 'Select Recruiter'} %>
-    <%= submit_tag "Filter", name: nil %>
-  <% end %>
-
-  <div>
-  <%= link_to('<i class="material-icons">today</i>'.html_safe,
-      candidate_appointments_path(@candidate, month: Time.now.month, day: Time.now.day, year: Time.now.year))%>
-  <%= link_to('<i class="material-icons">arrow_forward</i>'.html_safe,
-      candidate_appointments_path(@candidate, @tomorrow))%>
+  <form class="recruiter-picker">
+    <%= form_tag candidate_appointments_path, method: "get" do %>
+      <%= label_tag "Select a recruiter and choose a time:"%>
+      <%= select "appointment", "recruiter_id", options_for_select(recruiters_for_select, selected: params[:recruiter_id]), {prompt: 'Select Recruiter'}%>
+      <%= submit_tag "go", name: nil %>
+    <% end %>
+  </form>
 </div>
 
-<div class="cand_day">
-<h3><%= @date.strftime('%A %B %-d, %Y') %></h3>
-<% @appointments.each do |a| %>
-  <% if a.timeslot.start_time.strftime('%b %d') == @date.strftime('%b %d') %>
+    <div class="date-picker">
+        <%= link_to('<i class="material-icons">arrow_backward</i>'.html_safe,
+            candidate_appointments_path(@candidate, @yesterday))%>
+        <%= link_to('<i class="material-icons">today</i>'.html_safe,
+            candidate_appointments_path(@candidate, month: Time.now.month, day: Time.now.day, year: Time.now.year))%>
+        <%= link_to('<i class="material-icons">arrow_forward</i>'.html_safe,
+            candidate_appointments_path(@candidate, @tomorrow))%>
+    </div>
+
+  <div class="appointment-picker">
+  <div class="cand_day">
+  <h3><%= @date.strftime('%A %B %-d, %Y') %></h3>
+  <% @appointments.each do |a| %>
+    <% if a.timeslot.start_time.strftime('%b %d') == @date.strftime('%b %d') %>
+      <ul>
+        <% if Appointment.exists?(timeslot_id: a.timeslot)%>
+          <li>
+            <%= a.timeslot.start_time.strftime('%l:%M %P') %>
+            <%= button_to "Select", edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit" %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+  </div>
+  <div class="cand_day">
+  <h3><%= (@date + 1).strftime('%A %B %-d, %Y') %></h3>
+  <% @appointments.each do |a| %>
+    <% if a.timeslot.start_time.strftime('%b %d') == (@date + 1).strftime('%b %d') %>
     <ul>
       <% if Appointment.exists?(timeslot_id: a.timeslot)%>
         <li>
@@ -29,20 +50,6 @@
       <% end %>
     </ul>
   <% end %>
-<% end %>
+  </div>
+  <% end %>
 </div>
-<div class="cand_day">
-<h3><%= (@date + 1).strftime('%A %B %-d, %Y') %></h3>
-<% @appointments.each do |a| %>
-  <% if a.timeslot.start_time.strftime('%b %d') == (@date + 1).strftime('%b %d') %>
-  <ul>
-    <% if Appointment.exists?(timeslot_id: a.timeslot)%>
-      <li>
-        <%= a.timeslot.start_time.strftime('%l:%M %P') %>
-        <%= button_to "Select", edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit" %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-</div>
-<% end %>

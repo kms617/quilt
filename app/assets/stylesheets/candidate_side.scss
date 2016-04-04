@@ -6,42 +6,10 @@
 html, body, main {
   height: 100%;
   padding: 0 0 0 0;
-}
-
-body.home {
-  background: transparent asset-url('home.jpg') no-repeat;
-  background-size: cover;
-  font-family: 'Monserrat';
-  font-weight: bold;
-
-  div#flash {
-    margin: 1em;
-  }
-
-  main {
-    display: flex;
-  }
-
-  a.sign-in {
-    @include transition(background-color 0.3s ease);
-
-    align-self: center;
-    background-color: $blue;
-    color: white;
-    display: block;
-    font-size: 24px;
-    margin: 0 auto;
-    padding: 0.5em 1em;
-    text-decoration: none;
-
-    &:hover {
-      background-color: rgba($blue, 1);
-    }
-  }
+  background-color: $white;
 }
 
 div.banner-contain {
-
   background-color: $bright-blue;
 
   h1 {
@@ -54,6 +22,7 @@ div.banner-contain {
 
 div.candidate-div {
   @include outer-container;
+  background-color: $white;
 
   h2 {
     margin-left: 75px;
@@ -72,6 +41,34 @@ div.candidate-div {
     margin-left: 75px;
     margin-bottom: 25px;
     font-weight: normal;
+  }
+
+    form.recruiter-picker {
+      @include span-columns(7);
+      clear: both;
+      background-color: $light-green;
+      padding-top: .75em;
+      height: 50px;
+      width: 100%;
+
+      label {
+        margin-left: 75px;
+        display: inline;
+      }
+
+      select {
+        display: inline;
+        margin-left: .5em;
+      }
+
+      input {
+        padding: .5em;
+        margin-left: 1em;
+      }
+    }
+
+    div.appointment-picker {
+      display: block;
   }
 
   form.new_candidate {
