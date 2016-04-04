@@ -1,28 +1,9 @@
 div.disclaimer {
-  margin-top: 2em;
+  background-color: $white;
+  padding-top: 1em;
   background-image: url("disclaimer.png");
   background-repeat: no-repeat;
   height: 1000px;
-
-  h1 {
-    font-weight: 800;
-    color: $light-green;
-    margin-top: 45px;
-    margin-bottom: 25px;
-    font-size: 25px;
-    padding-left: 45px;
-    @include span-columns(7 of 12);
-    @include shift(2 of 12);
-    text-align: center;
-  }
-
-  h2 {
-    color: $light-green;
-  }
-
-  img {
-    padding-left: 18px;
-  }
 }
 
 .modal {
@@ -47,7 +28,7 @@ div.disclaimer {
   label {
     cursor: pointer;
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 1em;
     @include shift(3 of 12);
     padding-left: 25px;
     padding-top: 130px;
@@ -69,6 +50,7 @@ div.disclaimer {
 
     a {
       color: $light-green;
+      font-size: 1em;
     }
   }
 

@@ -2,5 +2,5 @@ div.category {
   @include span-columns(12);
   background-color: $white;
   height: 100%;
-  margin-top: 2em;
+  padding-top: 1.5em;
 }

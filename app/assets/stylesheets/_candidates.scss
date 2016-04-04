@@ -1,5 +1,8 @@
-div.banner-contain {
+body.candidates {
+  background-color: $white;
+}
 
+div.banner-contain {
   background-color: $bright-blue;
 
   h1 {
@@ -12,6 +15,7 @@ div.banner-contain {
 
 div.candidate-div {
   @include outer-container;
+
 
   h2 {
     margin-left: 75px;
@@ -31,6 +35,12 @@ div.candidate-div {
     margin-left: 75px;
     margin-bottom: 25px;
     font-weight: normal;
+  }
+
+  a {
+    font-size: 1em;
+    padding-left: 1em;
+    font-weight: 600;
   }
 
   form {
