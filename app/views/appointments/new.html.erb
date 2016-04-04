@@ -17,12 +17,12 @@
       <i class="bhi-next"></i>
     <% end %>
   </div>
+<%= form_tag appointments_path(method: :post) do %>
   <div class="two-span head-element">
     <%= submit_tag 'Submit', class: "submit" %>
   </div>
 </div>
 
-<%= form_tag appointments_path(method: :post) do %>
 
 
 <div class="sched_day">

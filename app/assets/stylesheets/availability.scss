@@ -1,0 +1,55 @@
+.day-nav {
+  @include span-columns(2);
+}
+
+.four-span {
+  @include span-columns(3);
+}
+
+.two-span {
+  @include span-columns(2);
+}
+
+.head_div {
+  display: flex;
+  height: 60px;
+  margin: 0 auto;
+  @include outer-container;
+}
+
+.head-element {
+  margin: auto 0;
+  font-weight: 100;
+}
+
+.material-icons {
+  color: $action-button;
+  margin: auto;
+
+}
+
+.cand_day {
+  @include span-columns(6);
+  @include omega();
+}
+
+.sched_day {
+  @include span-columns(3);
+  @include omega();
+  text-align: center;
+}
+
+.ThemeHeadingText {
+  color: #222;
+  font-size: 17px;
+  // background: #f6f6f6;
+  // background: linear-gradient(to right, #fff, #f6f6f6 35%);
+}
+
+#circle {
+  color: rgb(81, 182, 116);
+  display: inline-block;
+  font-size: 30px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
