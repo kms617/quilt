@@ -47,7 +47,10 @@ class AppointmentsController < ApplicationController
 
     #Create iCalendar event
     calendar = Icalendar::Calendar.new
-    calendar.add_event(@appointment.to_ics)
+    event = calendar.add_event(@appointment.to_ics)
+
+    mail = Notifier.mail_appointment(@appointment, event)
+    mail.deliver_now
     flash[:notice] = "#{@appointment.recruiter.first_name} will be ready for you at #{@appointment.timeslot.start_time.strftime('%l:%M %P')}. Thank you for signing up!"
     redirect_to welcome_home_path
   end

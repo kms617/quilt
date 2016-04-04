@@ -1,0 +1,8 @@
+<html>
+  <body>
+    <%= @appointment.recruiter.first_name %>,
+    <%= @appointment.candidate.first_name %> <%= @appointment.candidate.last_name %>
+    has made and appointment with you for<%= @appointment.timeslot.start_time.strftime('%l:%M %P') %> on
+    <%= @appointment.timeslot.start_time.strftime('%A %B %-d, %Y') %>. Add it to your calendar!
+  </body>
+</html>

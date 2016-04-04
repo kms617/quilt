@@ -21,12 +21,12 @@ end
 end
 
 # RECRUITERS
-Recruiter.create(id: 11, first_name: 'Son', last_name: "Trinh", email: "son@bullhorn.com", bullhorn_id: 5185260)
-Recruiter.create(id: 12, first_name: 'Kristin', last_name: "Smith", email: "k.smith@bullhorn.com", bullhorn_id: 5449213)
-Recruiter.create(id: 13, first_name: 'Leon', last_name: "Russo", email: "leon.russo@bullhorn.com")
-Recruiter.create(id: 14, first_name: 'Melanie', last_name: "Mosquera", email: "mmosquera@bullhorn.com", bullhorn_id: 5323157)
-Recruiter.create(id: 15, first_name: 'Chris', last_name: "Vasich", email: "cvasich@bullhorn.com")
-Recruiter.create(id: 16, first_name: 'Dennis', last_name: "McQuilken", email: "dmcquilken@bullhorn.com")
+Recruiter.create(id: 11, first_name: 'Son', last_name: "Trinh", email: "sondemo@acmerecruiters.com", bullhorn_id: 5185260)
+Recruiter.create(id: 12, first_name: 'Kristin', last_name: "Smith", email: "ksmithdemo@acmerecruiters.com", bullhorn_id: 5449213)
+Recruiter.create(id: 13, first_name: 'Leon', last_name: "Russo", email: "leondemo@acmerecruiters.com")
+Recruiter.create(id: 14, first_name: 'Melanie', last_name: "Mosquera", email: "melaniedemo@acmerecruiters.com", bullhorn_id: 5323157)
+Recruiter.create(id: 15, first_name: 'Chris', last_name: "Vasich", email: "chrisvdemo@acmerecruiters.com")
+Recruiter.create(id: 16, first_name: 'Dennis', last_name: "McQuilken", email: "dmcquilkendemo@acmerecruiters.com")
 
 # APPOINTMENTS
 Timeslot.all.each do |t|
