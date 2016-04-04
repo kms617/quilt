@@ -33,12 +33,6 @@ header .head-text {
 .material-icons {
   color: $action-button;
   margin: auto;
-
-}
-
-.cand_day {
-  @include span-columns(6);
-  @include omega();
 }
 
 .sched_day {

@@ -4,18 +4,18 @@
 @import 'bourbon';
 @import 'base/grid-settings';
 @import 'neat';
+@import "colors";
 @import 'base/base';
 @import 'refills/flashes';
 
 @import 'layout/layout';
 @import 'layout/topbar';
+@import "availability";
 @import 'candidates';
 @import 'candidate_side';
 @import 'categories';
 @import 'disclaimer';
 @import 'home';
-@import "colors";
-@import "availability";
 @import "bhdefault_forms";
 @import "bhdefault_elements";
 @import "bhdefault_icons";

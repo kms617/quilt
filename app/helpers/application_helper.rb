@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def recruiters_for_select
-    [['All Available', [11, 12, 14]], ['Son Trinh', 11], ['Kristin Smith', 12], ['Melanie Mosquera', 14]]
+    [['All Available', nil ], ['Son Trinh', 11], ['Kristin Smith', 12], ['Melanie Mosquera', 14]]
   end
 
   def genders_for_select

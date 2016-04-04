@@ -80,7 +80,7 @@ class AppointmentsController < ApplicationController
   end
 
   def appointments_for_select
-    if params[:appointment] == nil
+    if params[:appointment] == nil || params[:appointment][:recruiter_id] == ""
       Appointment.where(candidate_id: nil)
     else
       Appointment.where(candidate_id: nil, recruiter_id: params[:appointment][:recruiter_id])

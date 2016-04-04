@@ -1,7 +1,6 @@
-<%= render "topbar" %>
 <%= render 'form_errors.html.erb', object: @candidate  %>
 <div class="banner-contain">
-  <h1 class="banner-content">Create a Profile with Adecco</h1>
+  <%= image_tag('profile-banner.png') %>
 </div>
 <div class= candidate-div>
   <h3>Thanks for coming <%= @candidate.first_name %></h3>

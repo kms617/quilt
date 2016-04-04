@@ -6,7 +6,42 @@
 html, body, main {
   height: 100%;
   padding: 0 0 0 0;
-  background-color: $white;
+
+  .candidates {
+    background-color: $white;
+  }
+
+  .appointments.appointments-index {
+    background-color: $white;
+  }
+
+  &.appointments-edit {
+    background-color: $white;
+  }
+}
+
+.material-icons {
+  color: $bright-blue;
+  margin: auto;
+  width: 28px;
+
+}
+
+.cand_day {
+  width: 20%;
+  margin-left: 75px;
+  margin-top: 1em;
+
+  h3 {
+    font-size: 1.5em;
+    font-color: $dark-blue;
+  }
+
+  form.button_to {
+    input {
+      width: 220px;
+    }
+  }
 }
 
 div.banner-contain {
@@ -17,6 +52,18 @@ div.banner-contain {
     margin-left: 75px;
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+}
+
+div.date-picker {
+  margin-left: 75px;
+}
+
+div.appointment-picker {
+  display: flex;
+
+  div.recruiter-image {
+    margin-left: 6em;
   }
 }
 
@@ -66,10 +113,6 @@ div.candidate-div {
         margin-left: 1em;
       }
     }
-
-    div.appointment-picker {
-      display: block;
-  }
 
   form.new_candidate {
     @include span-columns(7);

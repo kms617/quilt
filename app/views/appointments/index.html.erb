@@ -1,15 +1,16 @@
-<%= render "topbar" %>
-<div class="banner-contain">
-  <h1 class="banner-content">Choose a time to meet with us</h1>
-</div>
-<div class= candidate-div>
-  <form class="recruiter-picker">
-    <%= form_tag candidate_appointments_path, method: "get" do %>
-      <%= label_tag "Select a recruiter and choose a time:"%>
-      <%= select "appointment", "recruiter_id", options_for_select(recruiters_for_select, selected: params[:recruiter_id]), {prompt: 'Select Recruiter'}%>
-      <%= submit_tag "go", name: nil %>
-    <% end %>
-  </form>
+<div class="top">
+  <div class="banner-contain">
+    <%= image_tag('recruiter-banner.png') %>
+  </div>
+  <div class= candidate-div>
+    <form class="recruiter-picker">
+      <%= form_tag candidate_appointments_path, method: "get" do %>
+        <%= label_tag "Select a recruiter and choose a time:"%>
+        <%= select "appointment", "recruiter_id", options_for_select(recruiters_for_select, selected: params[:recruiter_id]), {prompt: 'Select Recruiter'}%>
+        <%= submit_tag "go", name: nil %>
+      <% end %>
+    </form>
+  </div>
 </div>
 
     <div class="date-picker">
@@ -22,34 +23,34 @@
     </div>
 
   <div class="appointment-picker">
-  <div class="cand_day">
-  <h3><%= @date.strftime('%A %B %-d, %Y') %></h3>
-  <% @appointments.each do |a| %>
-    <% if a.timeslot.start_time.strftime('%b %d') == @date.strftime('%b %d') %>
+    <div class="cand_day">
+    <h3><%= @date.strftime('%A %B %-d, %Y') %></h3>
+    <% @appointments.each do |a| %>
+      <% if a.timeslot.start_time.strftime('%b %d') == @date.strftime('%b %d') %>
+        <ul>
+          <% if Appointment.exists?(timeslot_id: a.timeslot)%>
+            <li>
+              <%= button_to a.timeslot.start_time.strftime('%l:%M %P'), edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit" %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+    <br>
+    <h3><%= (@date + 1).strftime('%A %B %-d, %Y') %></h3>
+    <% @appointments.each do |a| %>
+      <% if a.timeslot.start_time.strftime('%b %d') == (@date + 1).strftime('%b %d') %>
       <ul>
         <% if Appointment.exists?(timeslot_id: a.timeslot)%>
           <li>
-            <%= a.timeslot.start_time.strftime('%l:%M %P') %>
-            <%= button_to "Select", edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit" %>
+            <%= button_to a.timeslot.start_time.strftime('%l:%M %P'), edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit" %>
           </li>
         <% end %>
       </ul>
     <% end %>
-  <% end %>
+    <% end %>
+    </div>
+    <div class="recruiter-image">
+      <%= image_tag ('recruiter3.png') %>
+    </div>
   </div>
-  <div class="cand_day">
-  <h3><%= (@date + 1).strftime('%A %B %-d, %Y') %></h3>
-  <% @appointments.each do |a| %>
-    <% if a.timeslot.start_time.strftime('%b %d') == (@date + 1).strftime('%b %d') %>
-    <ul>
-      <% if Appointment.exists?(timeslot_id: a.timeslot)%>
-        <li>
-          <%= a.timeslot.start_time.strftime('%l:%M %P') %>
-          <%= button_to "Select", edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit" %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-  </div>
-  <% end %>
-</div>
