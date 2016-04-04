@@ -24,6 +24,7 @@ div.candidate-div {
     margin-left: 75px;
     color: $bright-blue;
     font-size: 25px;
+    margin-top: .5em;
   }
 
   h6 {
@@ -95,22 +96,25 @@ div.candidate-div {
     div.modal-inner {
 
       div.modal-form {
-      @include span-columns(7);
-      clear: both;
+      @include span-columns(10);
+
 
         select {
-          @include shift(3 of 7);
-          @include span-columns(4 of 7);
+          @include span-columns(7 of 10);
         }
 
         label {
-          @include span-columns(3 of 7);
+          @include span-columns(3 of 10);
           margin-left: 0px;
           margin-top: 0px;
           padding-top: 0px;
-          font-size: 1em;
-          width: 10%;
+          font-size: .8em;
           text-align: right;
+        }
+
+        input.btn {
+          @include shift(3 of 10);
+          font-size: .9em;
         }
       }
     }
