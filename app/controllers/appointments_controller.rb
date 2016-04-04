@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  include ActionController::MimeResponds
 
   def index
     @date = date
@@ -8,18 +9,6 @@ class AppointmentsController < ApplicationController
     @timeslots = timeslots.order(start_time: :asc)
     @appointments = appointments_for_select
     @candidate = params[:candidate_id]
-  end
-
-  def edit
-    @appointment = Appointment.find(params[:id])
-  end
-
-  def update
-    @appointment = Appointment.find(params[:id])
-    @candidate = Candidate.find(params[:candidate_id])
-    @appointment.candidate = @candidate
-      flash[:notice] = "#{@appointment.recruiter.first_name} will be ready for you at #{@appointment.timeslot.start_time.strftime('%l:%M %P')}. Thank you for signing up!"
-      redirect_to welcome_home_path
   end
 
   def new
@@ -45,6 +34,22 @@ class AppointmentsController < ApplicationController
     # binding.pry
     # flash[:notice] = "Availability updated!"
     redirect_to(:back)
+  end
+
+  def edit
+    @appointment = Appointment.find(params[:id])
+  end
+
+  def update
+    @appointment = Appointment.find(params[:id])
+    @candidate = Candidate.find(params[:candidate_id])
+    @appointment.candidate = @candidate
+
+    #Create iCalendar event
+    calendar = Icalendar::Calendar.new
+    calendar.add_event(@appointment.to_ics)
+    flash[:notice] = "#{@appointment.recruiter.first_name} will be ready for you at #{@appointment.timeslot.start_time.strftime('%l:%M %P')}. Thank you for signing up!"
+    redirect_to welcome_home_path
   end
 
   private
