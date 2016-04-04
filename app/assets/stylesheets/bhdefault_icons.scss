@@ -22,6 +22,10 @@
   content: "\e60a";
 }
 
+.bhi-circle::before {
+  content: "\e615";
+}
+
 .bhi-next::before {
   content: "\e645";
 }
@@ -37,4 +41,12 @@ a {
 
 a:visited {
   color: $action-button;
+}
+
+#circle {
+  color: rgb(81, 182, 116);
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
 }
