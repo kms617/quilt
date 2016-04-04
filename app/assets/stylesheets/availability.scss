@@ -1,0 +1,48 @@
+.day-nav {
+  @include span-columns(2);
+}
+
+.four-span {
+  @include span-columns(3);
+}
+
+.two-span {
+  @include span-columns(2);
+}
+
+.head_div {
+  display: flex;
+  height: 60px;
+  margin: 0 auto;
+  @include outer-container;
+}
+
+.head-element {
+  margin: auto 0;
+  font-weight: 100;
+}
+
+header .head-text {
+    font-size: 17px;
+    font-weight: 700;
+    vertical-align: middle;
+    line-height: 42px;
+    margin-right: 10px;
+}
+
+.material-icons {
+  color: $action-button;
+  margin: auto;
+
+}
+
+.cand_day {
+  @include span-columns(6);
+  @include omega();
+}
+
+.sched_day {
+  @include span-columns(3);
+  @include omega();
+  text-align: center;
+}

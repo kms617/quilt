@@ -33,19 +33,19 @@ Timeslot.all.each do |t|
   if t.start_time.strftime("%H").include?("8" || "9")
     Appointment.create(recruiter_id: 11, timeslot_id: t.id)
   end
-  if t.start_time.strftime("%H").include?("9" || "10")
-    Appointment.create(recruiter_id: 12, timeslot_id: t.id)
-  end
-  if t.start_time.strftime("%H").include?("11" || "12")
-    Appointment.create(recruiter_id: 13, timeslot_id: t.id)
-  end
-  if t.start_time.strftime("%H").include?("13" || "14")
-    Appointment.create(recruiter_id: 14, timeslot_id: t.id)
-  end
-  if t.start_time.strftime("%H").include?("15" || "16")
-    Appointment.create(recruiter_id: 15, timeslot_id: t.id)
-  end
-  if t.start_time.strftime("%H").include?("17" || "18")
-    Appointment.create(recruiter_id: 16, timeslot_id: t.id)
-  end
+  # if t.start_time.strftime("%H").include?("9" || "10")
+  #   Appointment.create(recruiter_id: 12, timeslot_id: t.id)
+  # end
+  # if t.start_time.strftime("%H").include?("11" || "12")
+  #   Appointment.create(recruiter_id: 13, timeslot_id: t.id)
+  # end
+  # if t.start_time.strftime("%H").include?("13" || "14")
+  #   Appointment.create(recruiter_id: 14, timeslot_id: t.id)
+  # end
+  # if t.start_time.strftime("%H").include?("15" || "16")
+  #   Appointment.create(recruiter_id: 15, timeslot_id: t.id)
+  # end
+  # if t.start_time.strftime("%H").include?("17" || "18")
+  #   Appointment.create(recruiter_id: 16, timeslot_id: t.id)
+  # end
 end
