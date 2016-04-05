@@ -13,10 +13,10 @@
 </head>
 <body>
 <body class="<%= body_class %>">
-  <%= render 'flashes' -%>
   <main>
     <%= yield %>
     <%= render 'javascript' -%>
+    <%= render 'flashes' -%>
   </main>
 </body>
 </html>

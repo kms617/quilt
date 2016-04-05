@@ -1,5 +1,10 @@
+hr {
+  border-bottom: 2em solid $bright-blue;
+  margin: 0;
+}
+
 div.disclaimer {
-  background-color: $white;
+  background-color: $light-green;
   padding-top: 1em;
   background-image: url("disclaimer.png");
   background-repeat: no-repeat;

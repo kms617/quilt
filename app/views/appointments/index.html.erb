@@ -30,7 +30,10 @@
         <ul>
           <% if Appointment.exists?(timeslot_id: a.timeslot)%>
             <li>
-              <%= button_to a.timeslot.start_time.strftime('%l:%M %P'), edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit", remote: true %>
+              <%= button_to a.timeslot.start_time.strftime('%l:%M %P'),
+              edit_candidate_appointment_path(@candidate, a),
+              method: :get,
+              class: "submit" %>
             </li>
           <% end %>
         </ul>
@@ -43,7 +46,7 @@
       <ul>
         <% if Appointment.exists?(timeslot_id: a.timeslot)%>
           <li>
-            <%= button_to a.timeslot.start_time.strftime('%l:%M %P'), edit_candidate_appointment_path(@candidate, a), method: :get, class: "submit", remote: true %>
+            <%= button_to a.timeslot.start_time.strftime('%l:%M %P'), edit_candidate_appointment_path(@candidate, a), 'data-popup' => true, method: :get, class: "submit" %>
           </li>
         <% end %>
       </ul>
